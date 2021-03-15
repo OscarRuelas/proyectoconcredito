@@ -1,0 +1,58 @@
+<div class="container">
+  <h1>Listado de Prospectos</h1>
+  <table class="table table-hover">
+    <thead class="bg-primary text-light">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido 1</th>
+        <th scope="col">Apellido 2</th>
+        <th scope="col">Estatus</th>
+        <th scope="col">Accion</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let prospecto of prospectos">
+          <th scope="row">{{prospecto.idprospecto}}</th>
+          <td>{{prospecto.Nombre_prospecto}}</td>
+          <td>{{prospecto.Primer_apellido}}</td>
+          <td>{{prospecto.Segundo_apellido}}</td>
+          <td>{{prospecto.Estatus}}</td>
+          <td><!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" (click)="oscar(prospecto.idprospecto)">
+              Ver mas
+            </button>
+            
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body" *ngFor="let data of todos">
+                    <p>{{data.idprospecto}}</p>
+                    <p>{{data.Nombre_prospecto}}</p>
+                    <p>{{data.Primer_apellido}}</p>
+                    <p>{{data.Segundo_apellido}}</p>
+                    <p>{{data.Calle}}</p>
+                    <p>{{data.Numero}}</p>
+                    <p>{{data.Codigo_postal}}</p>
+                    <p>{{data.telefono}}</p>
+                    <p>{{data.RFC}}</p>
+                    <p>{{data.Estatus}}</p>
+                    <p>{{data.comentario_rechazo}}</p>
+                        <div *ngFor="let data of arg">
+                          <button type="button" class="btn btn-primary" (click)="descargar(data)">Descargar</button>
+                        </div>
+                    
+                  </div>
+                </div>
+              </div>
+            </div></td>
+        </tr>
+      </tbody>
+  </table>
+</div>

@@ -1,0 +1,71 @@
+<div class="col-md-8 offset-md-2">
+    <h1>Registro Prospecto</h1>
+    <div class="card">
+      <div class="card-body">
+        <form [formGroup]="formularioRegistro" class="formulario">
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Favor de llenar todos los campos, los campos que tengan un * son obligatorios</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="form-group">
+            <input formControlName="Nombreprospecto" type="text" name="Nombre_prospecto" [(ngModel)]="prospecto.Nombre_prospecto" placeholder="Nombre*" class="form-control" autofocus required>
+          </div>
+          <div class="form-group">
+            <input formControlName="Primerapellido" type="text" name="Primer_apellido" [(ngModel)]="prospecto.Primer_apellido" placeholder="Apellido Paterno*" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <input formControlName="Segundo_apellido" type="text" name="Segundo_apellido" [(ngModel)]="prospecto.Segundo_apellido" placeholder="Apellido Materno" class="form-control">
+          </div>
+          <div class="form-group">
+            <input formControlName="Calle" type="text" name="Calle" [(ngModel)]="prospecto.Calle" placeholder="Calle*" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <input formControlName="Numero" type="number" name="Numero" [(ngModel)]="prospecto.Numero" placeholder="Numero*" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <input formControlName="Codigo_postal" type="number" name="Codigo_postal" [(ngModel)]="prospecto.Codigo_postal" placeholder="Codigo_postal*" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <input formControlName="telefono" type="number" name="telefono" [(ngModel)]="prospecto.telefono" placeholder="telefono*" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <input formControlName="RFC" type="text" name="RFC" [(ngModel)]="prospecto.RFC" placeholder="RFC*" class="form-control" required>
+          </div>
+          <div class="input-group mb-3">
+            <input type="file" class="form-control" id="inputGroupFile02" (change)="imagen($event)">
+            <label class="input-group-text" for="inputGroupFile02">Subir</label>
+          </div>
+          <button [disabled]="!formularioRegistro.valid" class="btn btn-primary btn-block" (click)="saveNewProspecto()">
+            Enviar
+          </button>
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-danger mt-5" data-toggle="modal" data-target="#exampleModal">
+            Salir
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">¿Seguro que deseas salir?</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  Si sales de la pantalla se perderán los datos que no se guardaron con anteroridad
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                  <a href="/prospecto" class="btn btn-danger">Si</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+</div>
